@@ -9,7 +9,7 @@ export const Route = createFileRoute("/about")({
       { name: "description", content: "Founded in 2025, AXE GLOBAL SARLU drives Africa's economic transformation through multi-sector industrial expertise and strategic partnerships." },
       { property: "og:title", content: "About AXE GLOBAL SARLU" },
       { property: "og:description", content: "Mission, vision, values and leadership of AXE GLOBAL." },
-    ],
+    ],v
   }),
   component: AboutPage,
 });

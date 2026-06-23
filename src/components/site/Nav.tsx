@@ -25,24 +25,26 @@ export function Nav() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  const light = scrolled;
+
   return (
     <motion.nav
       initial={{ y: -30, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.6, ease: [0.32, 0.72, 0, 1] }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
+        light
           ? "bg-white/85 backdrop-blur-xl border-b border-navy/5"
           : "bg-transparent"
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-        <Link to="/" className="flex items-center gap-3 shrink-0">
-          <img src={LOGO} alt="AXE GLOBAL" className="h-10 w-auto" />
-          <div className="hidden sm:flex flex-col leading-none">
-            <span className="font-extrabold tracking-tight text-navy text-sm">AXE GLOBAL</span>
-            <span className="font-mono text-[9px] tracking-[0.25em] text-muted-foreground uppercase mt-1">SARLU</span>
-          </div>
+        <Link to="/" className="flex items-center shrink-0">
+          <img
+            src={LOGO}
+            alt="AXE GLOBAL"
+            className={`h-14 w-auto transition-all duration-300 ${light ? "" : "brightness-0 invert"}`}
+          />
         </Link>
 
         <div className="hidden lg:flex items-center gap-9 font-mono text-[11px] uppercase tracking-[0.18em]">
@@ -50,7 +52,7 @@ export function Nav() {
             <Link
               key={l.to}
               to={l.to}
-              className="text-navy/70 hover:text-azure transition-colors"
+              className={`transition-colors ${light ? "text-navy/70 hover:text-azure" : "text-white/75 hover:text-white"}`}
               activeProps={{ className: "text-azure" }}
               activeOptions={{ exact: l.to === "/" }}
             >
@@ -62,13 +64,17 @@ export function Nav() {
         <div className="flex items-center gap-3">
           <Link
             to="/contact"
-            className="hidden md:inline-flex items-center bg-navy text-white px-5 py-3 text-[11px] font-bold tracking-[0.18em] uppercase hover:bg-azure transition-colors"
+            className={`hidden md:inline-flex items-center px-5 py-3 text-[11px] font-bold tracking-[0.18em] uppercase transition-colors ${
+              light
+                ? "bg-navy text-white hover:bg-azure"
+                : "bg-white text-navy hover:bg-azure hover:text-white"
+            }`}
           >
             Request Quote
           </Link>
           <button
             onClick={() => setOpen((v) => !v)}
-            className="lg:hidden p-2 text-navy"
+            className={`lg:hidden p-2 transition-colors ${light ? "text-navy" : "text-white"}`}
             aria-label="Menu"
           >
             {open ? <X size={22} /> : <Menu size={22} />}

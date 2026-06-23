@@ -72,17 +72,17 @@ function ContactPage() {
               <div>
                 <div className="font-mono text-[10px] uppercase tracking-[0.3em] text-azure mb-3">Phone</div>
                 <div className="space-y-2">
-                  <a href="tel:+423839094758" className="flex items-center gap-4 text-navy hover:text-azure transition-colors">
+                  <a href="tel:+243839094758" className="flex items-center gap-4 text-navy hover:text-azure transition-colors">
                     <Phone className="text-azure shrink-0" size={20} />
-                    <span className="font-bold">+423 839 094 758</span>
+                    <span className="font-bold">+243 839 094 758</span>
                     <span className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground">Office</span>
                   </a>
-                  <a href="tel:+423971798652" className="flex items-center gap-4 text-navy hover:text-azure transition-colors">
+                  <a href="tel:+243971798652" className="flex items-center gap-4 text-navy hover:text-azure transition-colors">
                     <Phone className="text-azure shrink-0" size={20} />
-                    <span className="font-bold">+423 971 798 652</span>
+                    <span className="font-bold">+243 971 798 652</span>
                     <span className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground">CEO</span>
                   </a>
-                  <a href="https://wa.me/423971798652" target="_blank" rel="noreferrer" className="flex items-center gap-4 text-navy hover:text-azure transition-colors">
+                  <a href="https://wa.me/243971798652" target="_blank" rel="noreferrer" className="flex items-center gap-4 text-navy hover:text-azure transition-colors">
                     <MessageCircle className="text-azure shrink-0" size={20} />
                     <span className="font-bold">WhatsApp Business</span>
                   </a>

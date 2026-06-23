@@ -5,9 +5,6 @@ import { ArrowRight, ArrowUpRight, Truck, Droplets, Cpu, Calculator, Wrench, Lig
 import { Layout } from "@/components/site/Layout";
 import { Reveal } from "@/components/site/Reveal";
 import heroPort from "@/assets/hero-port.jpg";
-import automaxLogo from "@/assets/automax-logo.png.asset.json";
-import beforwardLogo from "@/assets/beforward-logo.svg.asset.json";
-import woodlandsImage from "@/assets/woodlands-image.jpg.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -33,9 +30,31 @@ const services = [
 ];
 
 const partners = [
-  { name: "AUTOMAX", tag: "01 / Driving Logistics", desc: "Tractors, trailers, prime movers and decanters powering regional industrial mobility.", image: automaxLogo.url, kind: "logo" as const },
-  { name: "BEForward", tag: "02 / Vehicle Procurement Partner", desc: "Strategic partner for international vehicle sourcing, shipping and logistics coordination.", image: beforwardLogo.url, kind: "logo" as const },
-  { name: "WOODLANDS", tag: "03 / Manufacturing Excellence", desc: "Water production machines, packaging, plastic manufacturing and spare parts.", image: woodlandsImage.url, kind: "photo" as const },
+  {
+    name: "AUTOMAX",
+    tag: "01 / Driving Logistics",
+    desc: "Tractors, trailers, prime movers and decanters powering regional industrial mobility.",
+    image: "https://automax.atomcards.co.tz/logo/logo.png",
+    href: "https://www.automaxspace.com/",
+    kind: "logo" as const,
+    imageBg: "bg-neutral-800",
+  },
+  {
+    name: "BEForward",
+    tag: "02 / Vehicle Procurement Partner",
+    desc: "Strategic partner for international vehicle sourcing, shipping and logistics coordination.",
+    image: "https://cdn.beforward.jp/assets/images/logo.svg?_=64c30c27",
+    href: "https://www.beforward.jp/",
+    kind: "logo" as const,
+  },
+  {
+    name: "WOODLANDS",
+    tag: "03 / Manufacturing Excellence",
+    desc: "Water production machines, packaging, plastic manufacturing and spare parts.",
+    image: "https://woodlands.co.ke/wp-content/uploads/2025/07/33.png",
+    href: "https://woodlands.co.ke/",
+    kind: "logo" as const,
+  },
 ];
 
 const stats = [
@@ -164,14 +183,20 @@ function HomePage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-slate-line border border-slate-line">
             {partners.map((p, i) => (
               <Reveal key={p.name} delay={i * 0.1}>
-                <motion.div whileHover={{ y: -4 }} className="bg-white p-10 h-full flex flex-col">
-                  <div className={`aspect-[4/3] mb-8 overflow-hidden bg-ice flex items-center justify-center ${p.kind === "logo" ? "px-8 py-10" : ""}`}>
-                    <img src={p.image} alt={p.name} loading="lazy" width={1200} height={800} className={`w-full h-full transition-all duration-700 ${p.kind === "logo" ? "object-contain" : "object-cover grayscale hover:grayscale-0"}`} />
+                <motion.a
+                  href={p.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  whileHover={{ y: -4 }}
+                  className="bg-white p-10 h-full flex flex-col cursor-pointer group"
+                >
+                  <div className={`aspect-[4/3] mb-8 overflow-hidden flex items-center justify-center ${p.imageBg ?? "bg-ice"} ${p.kind === "logo" ? "px-8 py-10" : ""}`}>
+                    <img src={p.image} alt={p.name} loading="lazy" width={1200} height={800} className={`w-full h-full transition-all duration-700 ${p.kind === "logo" ? "object-contain" : "object-cover grayscale group-hover:grayscale-0"}`} />
                   </div>
-                  <div className="font-extrabold text-3xl tracking-tighter text-navy mb-3">{p.name}</div>
+                  <div className="font-extrabold text-3xl tracking-tighter text-navy mb-3 group-hover:text-azure transition-colors">{p.name}</div>
                   <p className="text-sm text-muted-foreground leading-relaxed mb-6 flex-1">{p.desc}</p>
                   <div className="font-mono text-[10px] text-azure tracking-[0.25em] uppercase">{p.tag}</div>
-                </motion.div>
+                </motion.a>
               </Reveal>
             ))}
           </div>
@@ -239,7 +264,7 @@ function HomePage() {
               </div>
               <div className="absolute -bottom-6 -right-6 bg-azure p-6 text-white hidden md:block shadow-2xl shadow-azure/30">
                 <div className="font-mono text-[10px] uppercase tracking-[0.25em] mb-2 opacity-80">Direct Line</div>
-                <div className="font-bold text-sm">+423 971 798 652</div>
+                <div className="font-bold text-sm">+243 971 798 652</div>
               </div>
             </div>
           </Reveal>

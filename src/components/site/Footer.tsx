@@ -9,12 +9,8 @@ export function Footer() {
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-20">
           <div className="lg:col-span-4">
-            <div className="flex items-center gap-3 mb-6">
-              <img src={LOGO} alt="AXE GLOBAL" className="h-12 w-auto brightness-0 invert" />
-              <div className="flex flex-col leading-none">
-                <span className="font-extrabold tracking-tight text-white">AXE GLOBAL</span>
-                <span className="font-mono text-[9px] tracking-[0.25em] text-white/40 uppercase mt-1">SARLU</span>
-              </div>
+            <div className="mb-6">
+              <img src={LOGO} alt="AXE GLOBAL" className="h-16 w-auto brightness-0 invert" />
             </div>
             <p className="text-white/55 text-sm leading-relaxed max-w-sm mb-8">
               Creating opportunities, developing communities, and contributing to Africa's economic
@@ -58,7 +54,7 @@ export function Footer() {
               </li>
               <li className="flex items-center gap-3">
                 <Phone size={16} className="text-azure shrink-0" />
-                <a href="tel:+423839094758" className="hover:text-white transition-colors">+423 839 094 758</a>
+                <a href="tel:+243839094758" className="hover:text-white transition-colors">+243 839 094 758</a>
               </li>
             </ul>
           </div>

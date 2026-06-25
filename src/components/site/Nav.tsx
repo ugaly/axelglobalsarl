@@ -1,5 +1,4 @@
 import { Link } from "@tanstack/react-router";
-import { motion } from "motion/react";
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 
@@ -28,10 +27,7 @@ export function Nav() {
   const light = scrolled;
 
   return (
-    <motion.nav
-      initial={{ y: -30, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.6, ease: [0.32, 0.72, 0, 1] }}
+    <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         light
           ? "bg-white/85 backdrop-blur-xl border-b border-navy/5"
@@ -83,11 +79,7 @@ export function Nav() {
       </div>
 
       {open && (
-        <motion.div
-          initial={{ opacity: 0, y: -10 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="lg:hidden bg-white border-t border-navy/5 px-6 py-6 flex flex-col gap-4 font-mono text-xs uppercase tracking-[0.2em]"
-        >
+        <div className="lg:hidden bg-white border-t border-navy/5 px-6 py-6 flex flex-col gap-4 font-mono text-xs uppercase tracking-[0.2em]">
           {links.map((l) => (
             <Link
               key={l.to}
@@ -105,8 +97,8 @@ export function Nav() {
           >
             Request Quote
           </Link>
-        </motion.div>
+        </div>
       )}
-    </motion.nav>
+    </nav>
   );
 }

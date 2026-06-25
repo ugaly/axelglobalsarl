@@ -32,12 +32,12 @@ export function Footer() {
           </div>
 
           <div className="lg:col-span-2">
-            <h5 className="font-mono text-[10px] uppercase tracking-[0.25em] text-azure mb-6">Network</h5>
+            <h5 className="font-mono text-[10px] uppercase tracking-[0.25em] text-azure mb-6">Partners</h5>
             <ul className="space-y-3 text-sm text-white/60">
-              <li>AUTOMAX Congo</li>
-              <li>WOODLANDS Congo</li>
-              <li>PURUS Water</li>
-              <li>Industrial Equipment</li>
+              <li>BE Forward</li>
+              <li>AUTOMAX</li>
+              <li>WOODLANDS</li>
+              <li>Clockwise</li>
             </ul>
           </div>
 
@@ -50,7 +50,7 @@ export function Footer() {
               </li>
               <li className="flex items-center gap-3">
                 <Mail size={16} className="text-azure shrink-0" />
-                <a href="mailto:axeglobal@gmail.com" className="hover:text-white transition-colors">axeglobal@gmail.com</a>
+                <a href="mailto:axeglobalsarlu@gmail.com" className="hover:text-white transition-colors">axeglobalsarlu@gmail.com</a>
               </li>
               <li className="flex items-center gap-3">
                 <Phone size={16} className="text-azure shrink-0" />

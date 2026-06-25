@@ -2,14 +2,13 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { Layout } from "@/components/site/Layout";
 import { Reveal } from "@/components/site/Reveal";
-import { motion } from "motion/react";
 import { Mail, Phone, MapPin, MessageCircle, ArrowUpRight, Check } from "lucide-react";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
       { title: "Contact & Request a Quote — AXE GLOBAL SARLU" },
-      { name: "description", content: "Request a quotation or contact AXE GLOBAL SARLU. HQ in Manika, DRC. Email axeglobal@gmail.com." },
+      { name: "description", content: "Request a quotation or contact AXE GLOBAL SARLU. HQ in Manika, DRC. Email axeglobalsarlu@gmail.com." },
       { property: "og:title", content: "Contact AXE GLOBAL" },
       { property: "og:description", content: "Request a quotation or talk with our team." },
     ],
@@ -58,9 +57,9 @@ function ContactPage() {
               <div>
                 <div className="font-mono text-[10px] uppercase tracking-[0.3em] text-azure mb-3">Email</div>
                 <div className="space-y-2">
-                  <a href="mailto:axeglobal@gmail.com" className="flex items-center gap-4 text-navy hover:text-azure transition-colors">
+                  <a href="mailto:axeglobalsarlu@gmail.com" className="flex items-center gap-4 text-navy hover:text-azure transition-colors">
                     <Mail className="text-azure shrink-0" size={20} />
-                    <span className="font-bold">axeglobal@gmail.com</span>
+                    <span className="font-bold">axeglobalsarlu@gmail.com</span>
                   </a>
                   <a href="mailto:contact@axeglobal.com" className="flex items-center gap-4 text-navy hover:text-azure transition-colors">
                     <Mail className="text-azure shrink-0" size={20} />
@@ -105,17 +104,13 @@ function ContactPage() {
               className="bg-ice border border-slate-line p-8 md:p-10"
             >
               {sent ? (
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  className="text-center py-16"
-                >
+                <div className="text-center py-16">
                   <div className="inline-flex w-16 h-16 bg-azure text-white rounded-full items-center justify-center mb-6">
                     <Check size={28} />
                   </div>
                   <h3 className="text-2xl font-extrabold tracking-tight text-navy mb-3">Request received</h3>
                   <p className="text-muted-foreground">Our team will get back to you within one business day.</p>
-                </motion.div>
+                </div>
               ) : (
                 <>
                   <div className="font-mono text-[10px] uppercase tracking-[0.3em] text-azure mb-2">Quotation Form</div>

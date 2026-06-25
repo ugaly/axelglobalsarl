@@ -1,6 +1,4 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { motion, useScroll, useTransform } from "motion/react";
-import { useRef } from "react";
 import { ArrowRight, ArrowUpRight, Truck, Droplets, Cpu, Calculator, Wrench, Lightbulb, FileSpreadsheet, Leaf } from "lucide-react";
 import { Layout } from "@/components/site/Layout";
 import { Reveal } from "@/components/site/Reveal";
@@ -40,7 +38,7 @@ const partners = [
     imageBg: "bg-neutral-800",
   },
   {
-    name: "BEForward",
+    name: "BE Forward",
     tag: "02 / Vehicle Procurement Partner",
     desc: "Strategic partner for international vehicle sourcing, shipping and logistics coordination.",
     image: "https://cdn.beforward.jp/assets/images/logo.svg?_=64c30c27",
@@ -55,13 +53,22 @@ const partners = [
     href: "https://woodlands.co.ke/",
     kind: "logo" as const,
   },
+  {
+    name: "Clockwise Technologies",
+    tag: "04 / Digital Transformation",
+    desc: "Custom applications, cloud platforms, and digital systems for organizations across Africa and beyond.",
+    image: "https://clockwise.atomcards.co.tz/logo/clockwise-logo.png",
+    href: "http://clockwisetz.com/",
+    kind: "logo" as const,
+    imageBg: "bg-neutral-800",
+  },
 ];
 
 const stats = [
   { k: "EST.", v: "2025" },
   { k: "REGIONS", v: "03" },
   { k: "SECTORS", v: "12+" },
-  { k: "PARTNERS", v: "3" },
+  { k: "PARTNERS", v: "4" },
 ];
 
 const values = [
@@ -70,51 +77,31 @@ const values = [
 ];
 
 function HomePage() {
-  const heroRef = useRef<HTMLElement>(null);
-  const { scrollYProgress } = useScroll({ target: heroRef, offset: ["start start", "end start"] });
-  const y = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
-  const opacity = useTransform(scrollYProgress, [0, 1], [1, 0.3]);
-
   return (
     <Layout>
       {/* HERO */}
-      <section ref={heroRef} className="relative min-h-screen flex flex-col justify-center overflow-hidden bg-navy">
-        <motion.div style={{ y, opacity }} className="absolute inset-0">
+      <section className="relative min-h-screen flex flex-col justify-center overflow-hidden bg-navy">
+        <div className="absolute inset-0">
           <img src={heroPort} alt="" width={1920} height={1080} className="w-full h-full object-cover opacity-40" />
           <div className="absolute inset-0 bg-gradient-to-r from-navy-2 via-navy/70 to-transparent" />
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-navy" />
-        </motion.div>
+        </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-6 pt-32 pb-24 w-full">
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, ease: [0.32, 0.72, 0, 1] }}
-            className="flex items-center gap-4 mb-8"
-          >
-            <motion.div initial={{ scaleX: 0 }} animate={{ scaleX: 1 }} transition={{ duration: 1, delay: 0.2 }} className="h-px w-12 bg-azure origin-left" />
+          <div className="flex items-center gap-4 mb-8">
+            <div className="h-px w-12 bg-azure" />
             <span className="font-mono text-azure text-[11px] tracking-[0.35em] uppercase">
               Leading Africa's Industrial Future
             </span>
-          </motion.div>
+          </div>
 
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9, delay: 0.15, ease: [0.32, 0.72, 0, 1] }}
-            className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold tracking-tighter leading-[0.92] text-white text-balance max-w-6xl"
-          >
+          <h1 className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold tracking-tighter leading-[0.92] text-white text-balance max-w-6xl">
             Innovation Through <span className="text-azure">Difference</span>.
             <br />
             Excellence Through <span className="underline decoration-azure/40 decoration-4 underline-offset-[12px]">Action</span>.
-          </motion.h1>
+          </h1>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="grid grid-cols-1 md:grid-cols-2 gap-10 mt-14 max-w-5xl"
-          >
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mt-14 max-w-5xl">
             <p className="text-white/65 text-lg leading-relaxed max-w-md">
               AXE GLOBAL SARLU is a multi-sector catalyst for economic transformation, delivering
               high-impact industrial solutions across DRC, Tanzania and Kenya.
@@ -133,22 +120,19 @@ function HomePage() {
                 Request a Quote
               </Link>
             </div>
-          </motion.div>
+          </div>
         </div>
 
         {/* Stat strip */}
         <div className="relative z-10 grid grid-cols-2 md:grid-cols-4 border-t border-white/10 bg-navy-2/70 backdrop-blur-sm">
           {stats.map((s, i) => (
-            <motion.div
+            <div
               key={s.k}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.6 + i * 0.1 }}
               className={`p-6 md:p-8 ${i < stats.length - 1 ? "md:border-r border-white/10" : ""} ${i < 2 ? "border-b md:border-b-0" : ""} ${i % 2 === 0 ? "border-r" : ""} border-white/10`}
             >
               <div className="text-azure font-mono text-[10px] tracking-[0.25em] mb-2">{s.k}</div>
               <div className="text-white font-extrabold text-2xl md:text-3xl tracking-tight">{s.v}</div>
-            </motion.div>
+            </div>
           ))}
         </div>
       </section>
@@ -180,15 +164,14 @@ function HomePage() {
               <div className="h-px flex-grow bg-slate-line" />
             </div>
           </Reveal>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-slate-line border border-slate-line">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-slate-line border border-slate-line">
             {partners.map((p, i) => (
               <Reveal key={p.name} delay={i * 0.1}>
-                <motion.a
+                <a
                   href={p.href}
                   target="_blank"
                   rel="noreferrer"
-                  whileHover={{ y: -4 }}
-                  className="bg-white p-10 h-full flex flex-col cursor-pointer group"
+                  className="bg-white p-10 h-full flex flex-col cursor-pointer group hover:-translate-y-1 transition-transform"
                 >
                   <div className={`aspect-[4/3] mb-8 overflow-hidden flex items-center justify-center ${p.imageBg ?? "bg-ice"} ${p.kind === "logo" ? "px-8 py-10" : ""}`}>
                     <img src={p.image} alt={p.name} loading="lazy" width={1200} height={800} className={`w-full h-full transition-all duration-700 ${p.kind === "logo" ? "object-contain" : "object-cover grayscale group-hover:grayscale-0"}`} />
@@ -196,7 +179,7 @@ function HomePage() {
                   <div className="font-extrabold text-3xl tracking-tighter text-navy mb-3 group-hover:text-azure transition-colors">{p.name}</div>
                   <p className="text-sm text-muted-foreground leading-relaxed mb-6 flex-1">{p.desc}</p>
                   <div className="font-mono text-[10px] text-azure tracking-[0.25em] uppercase">{p.tag}</div>
-                </motion.a>
+                </a>
               </Reveal>
             ))}
           </div>
@@ -228,10 +211,7 @@ function HomePage() {
               const Icon = s.icon;
               return (
                 <Reveal key={s.name} delay={(i % 4) * 0.05}>
-                  <motion.div
-                    whileHover={{ backgroundColor: "rgba(56,166,255,0.06)" }}
-                    className="p-8 border-r border-b border-white/10 group h-full"
-                  >
+                  <div className="p-8 border-r border-b border-white/10 group h-full hover:bg-azure/5 transition-colors">
                     <div className="flex items-center justify-between mb-8">
                       <Icon className="text-azure" size={28} strokeWidth={1.5} />
                       <span className="font-mono text-[10px] text-white/30 tracking-widest">
@@ -240,7 +220,7 @@ function HomePage() {
                     </div>
                     <h4 className="text-lg font-bold mb-3 group-hover:text-azure transition-colors">{s.name}</h4>
                     <p className="text-sm text-white/50 leading-relaxed">{s.desc}</p>
-                  </motion.div>
+                  </div>
                 </Reveal>
               );
             })}

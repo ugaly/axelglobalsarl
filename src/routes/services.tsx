@@ -2,7 +2,6 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Layout } from "@/components/site/Layout";
 import { Reveal } from "@/components/site/Reveal";
 import { Truck, Droplets, Cpu, Calculator, Wrench, Lightbulb, FileSpreadsheet, Leaf } from "lucide-react";
-import { motion } from "motion/react";
 
 export const Route = createFileRoute("/services")({
   head: () => ({
@@ -47,7 +46,7 @@ function ServicesPage() {
             const Icon = s.icon;
             return (
               <Reveal key={s.name} delay={(i % 2) * 0.08}>
-                <motion.div whileHover={{ y: -4 }} className="bg-white p-10 h-full">
+                <div className="bg-white p-10 h-full hover:-translate-y-1 transition-transform">
                   <div className="flex items-center justify-between mb-6">
                     <Icon className="text-azure" size={32} strokeWidth={1.5} />
                     <span className="font-mono text-[10px] text-muted-foreground tracking-widest">
@@ -64,7 +63,7 @@ function ServicesPage() {
                       </li>
                     ))}
                   </ul>
-                </motion.div>
+                </div>
               </Reveal>
             );
           })}
